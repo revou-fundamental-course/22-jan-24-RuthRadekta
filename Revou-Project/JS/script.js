@@ -116,10 +116,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const allowedDomains = ['gmail.com', 'yahoo.com'];
 
+        const successMessage = document.getElementById('successMessage');
+
         if (nameInput.checkValidity() && emailInput.checkValidity() && isAllowedDomain(emailValue, allowedDomains) && emailRegex.test(emailValue)) {
+            successMessage.style.display = 'block';
             return true;
         } else {
             openPopup();
+            successMessage.style.display = 'none';
             return false;
         }
     }
@@ -138,5 +142,3 @@ document.addEventListener('DOMContentLoaded', function() {
         const popup = document.getElementById('popup');
         popup.style.display = 'none';
     }
-    
-
